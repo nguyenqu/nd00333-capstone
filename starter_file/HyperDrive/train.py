@@ -14,8 +14,10 @@ from sklearn.metrics import confusion_matrix
 
 
 def preprocess_data(data):
-    x_df = data.to_pandas_dataframe()
-    y_df = x_df.pop("DEATH_EVENT")
+    ##x_df = data.to_pandas_dataframe()
+    ##y_df = x_df.pop("DEATH_EVENT")
+    y_df = data['DEATH_EVENT']
+    x_df = data.drop(['DEATH_EVENT'], axis=1)
     return (x_df, y_df)
 
 
@@ -49,7 +51,7 @@ def main():
     # Split data into train and test sets.
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True)
     
-    x_train.take(5).to_pandas_dataframe()
+    x_train.head()
 
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
