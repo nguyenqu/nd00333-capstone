@@ -36,7 +36,8 @@ def main():
     # Create TabularDataset using TabularDatasetFactory
     # Data is located at:
     # "https://archive.ics.uci.edu/ml/machine-learning-databases/00519/heart_failure_clinical_records_dataset.csv"
-    dataset_url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00519/heart_failure_clinical_records_dataset.csv"
+    # dataset_url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00519/heart_failure_clinical_records_dataset.csv"
+    dataset_url = "https://github.com/nguyenqu/nd00333-capstone/tree/master/starter_file/heart_failure_clinical_records_dataset.csv"
     dataset = TabularDatasetFactory.from_delimited_files(path=dataset_url)
     data_df = dataset.to_pandas_dataframe()
     
